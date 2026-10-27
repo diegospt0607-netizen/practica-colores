@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Practica RoomColor - A-Frame</title>
+<meta name="description" content="Interactions A-Frame">
+<script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+</head>
+<body>
+<a-scene>
+<a-assets>
+<!-- Textura modificada del piso -->
+<img id="groundTexture" src="https://cdn.aframe.io/images/globalgrid.png">
+</a-assets>
+<!-- Textos informativos -->
+<a-text value="Bienvenido a tu nueva recamara!" position="-1.5 4 -5" color="#000" scale="1.5 1.5 1.5"></a-text>
+<a-text value="Aplica un nuevo color apuntando la mira a la esfera que prefieras" position="-1.5 3.5 -5" color="#000"></a-text>
+<!-- Esferas interactivas -->
+<a-sphere position="-3 1 -5" rotation="0 90 30" radius="0.5" color="#FF5722"
+             event-set__enter="_event: mouseenter; _target: #bg; color: #FF5722">
+</a-sphere>
+<a-sphere position="-1 1 -5" rotation="0 45 45" radius="0.5" color="#8BC34A"
+             event-set__enter="_event: mouseenter; _target: #bg; color: #8BC34A">
+</a-sphere>
+<a-sphere position="1 1 -5" rotation="0 70 30" radius="0.5" color="#9C27B0"
+             event-set__enter="_event: mouseenter; _target: #bg; color: #9C27B0">
+</a-sphere>
+<a-sphere position="3 2 -4" rotation="0 45 30" radius="0.5" color="#FFEB3B"
+             event-set__enter="_event: mouseenter; _target: #bg; color: #FFEB3B">
+</a-sphere>
+<!-- Controles VR y Fondo -->
+<a-entity laser-controls="hand: left"></a-entity>
+<a-entity laser-controls="hand: right"></a-entity>
+<!-- Fondo de pared -->
+<a-sky id="bg" color="#E0F7FA"></a-sky>
+<!-- Plano del suelo -->
+<a-plane src="#groundTexture" rotation="-90 0 0" width="50" height="50"></a-plane>
+<a-camera>
+<a-cursor></a-cursor>
+</a-camera>
+</a-scene>
+</body>
+</html>
